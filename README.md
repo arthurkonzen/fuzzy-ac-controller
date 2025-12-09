@@ -1,30 +1,38 @@
-Descrição do Projeto
+🌡️ Sistema Inteligente de Controle de Ar-Condicionado (IA Fuzzy)
 
-Este projeto consiste em um MVP de um sistema inteligente baseado em Lógica Fuzzy para calcular automaticamente a potência recomendada de um ar-condicionado, considerando:
+Este projeto consiste em um MVP de um sistema inteligente baseado em Lógica Fuzzy capaz de calcular automaticamente a potência ideal de um ar-condicionado considerando:
 
-Temperatura ambiente (°C)
+🌡 Temperatura ambiente (°C)
 
-Umidade relativa (%)
+💧 Umidade relativa do ar (%)
 
-Ele inclui:
+O sistema inclui:
 
-✔ Módulo Inteligente (IA Fuzzy)
-✔ Interface Web (Streamlit)
-✔ Dashboard com gráficos e logs
-✔ Mini API integrada
-✔ Sistema de armazenamento de dados (CSV)
+🧠 Módulo de IA Fuzzy
 
-O objetivo é demonstrar o uso de Inteligência Artificial aplicada ao controle de conforto térmico de forma simples, acessível e funcional.
+🖥️ Interface Web completa (Streamlit)
+
+📊 Dashboard com gráficos e histórico
+
+🌐 Mini API integrada
+
+📝 Registro automático de logs (CSV)
+
+O objetivo é demonstrar o uso prático de Inteligência Artificial aplicada ao conforto térmico em um MVP simples, claro e totalmente funcional.
 
 🧠 Como o Sistema Inteligente Funciona
 
-A lógica fuzzy faz a inferência de forma aproximada, usando regras do tipo:
+A lógica fuzzy permite decisões aproximadas utilizando regras linguísticas — ideal para problemas contínuos como controle térmico.
 
-SE temperatura é alta E umidade é alta → potência é alta
+Exemplos de regras fuzzy utilizadas:
 
-SE temperatura é baixa E umidade é baixa → potência é baixa
+SE temperatura é alta E umidade é alta → potência alta
 
-O módulo de IA recebe valores contínuos de temperatura e umidade, aplica:
+SE temperatura é baixa E umidade é baixa → potência baixa
+
+SE temperatura é média E umidade é alta → potência média/alta
+
+O sistema realiza automaticamente:
 
 Fuzzificação
 
@@ -34,96 +42,107 @@ Inferência
 
 Defuzzificação
 
-E retorna uma potência entre 0% e 100%.
+Resultado final (0% a 100%)
 
-Arquivo responsável:
-📌 fuzzy_controller.py
+📌 Arquivo responsável pela IA:
+fuzzy_controller.py
 
-🖥️ Tecnologias Utilizadas
-🔹 Linguagens e Bibliotecas
+🛠️ Tecnologias Utilizadas
+🔹 Linguagem & Bibliotecas (Python)
 
 Python 3.10+
 
 scikit-fuzzy — motor fuzzy principal
 
-NumPy
+numpy
 
-Streamlit — interface web e dashboard
+pandas
 
-Pandas — manipulação de logs
+matplotlib
 
-CSV — armazenamento de histórico
+streamlit — interface web
 
-🔹 Arquitetura
+🔹 Arquitetura do Projeto
 
-IA encapsulada em um módulo Python (fuzzy_controller.py)
+IA encapsulada no módulo: fuzzy_controller.py
 
-Interface + API integradas em app.py
+Interface + API em: app.py
 
-Logs armazenados em logs.csv
+Logs salvos em: logs.csv
 
-Arquitetura limpa e modular
+Ambiente virtual isolado: .venv/
+
+Tudo organizado de forma modular e didática.
 
 📁 Estrutura do Projeto
 fuzzy-ac-controller/
-│── app.py                 # Interface web + Dashboard + API
-│── fuzzy_controller.py    # Motor Fuzzy (IA)
-│── logs.csv               # Logs gerados automaticamente
-│── .venv/                 # Ambiente virtual isolado
-│── README.md              # ESTE documento
+│── app.py                # Interface web + Dashboard + API
+│── fuzzy_controller.py   # Lógica Fuzzy (IA)
+│── logs.csv              # Histórico gerado automaticamente
+│── requirements.txt      # Dependências instaláveis
+│── .venv/                # Ambiente virtual (opcional)
+│── README.md             # Documentação
 
-⚙️ Como Rodar o Projeto
-1️⃣ Clonar o repositório (se estiver usando GitHub)
-git clone https://github.com/seu_usuario/fuzzy-ac-controller
+⚙️ Como Rodar o Projeto (Passo a Passo Completo)
+🔽 1. Clonar o repositório
+git clone https://github.com/arthurkonzen/fuzzy-ac-controller
 cd fuzzy-ac-controller
 
-2️⃣ Criar o ambiente virtual
-
-No Windows:
-
+🧰 2. Criar um Ambiente Virtual
+✔ Windows:
 python -m venv .venv
-
-
-Ativar:
-
 .venv\Scripts\activate
 
-3️⃣ Instalar dependências
+✔ Linux / Mac:
+python3 -m venv .venv
+source .venv/bin/activate
+
+📦 3. Instalar Dependências
+Instalar usando requirements.txt
 pip install -r requirements.txt
 
+Ou instalar manualmente:
+pip install scikit-fuzzy numpy streamlit pandas matplotlib
 
-Se não tiver o requirements.txt, instale manualmente:
-
-pip install scikit-fuzzy numpy streamlit pandas
-
-4️⃣ Rodar o sistema
+🚀 4. Executar o Sistema
 streamlit run app.py
 
 
-Abrirá automaticamente em:
+A aplicação abrirá automaticamente em:
 
-http://localhost:8501
+👉 http://localhost:8501
 
 🕹️ Como Usar o Sistema
-✔ Ajuste a temperatura pelo slider
-✔ Ajuste a umidade pelo slider
-✔ O sistema calcula automaticamente a potência ideal
-✔ Dashboard atualiza em tempo real:
+✔ 1. Ajuste os sliders:
 
-Gráfico da potência
+Temperatura (°C)
 
-Tabela com logs
+Umidade (%)
 
-Métricas atuais
+✔ 2. O sistema calcula automaticamente:
 
-✔ API integrada
+Potência (%) ideal do ar-condicionado
 
-Você pode chamar a IA pela URL:
+Recomendação textual (sucesso, alerta ou crítico)
+
+✔ 3. Dashboard inclui:
+
+📈 Gráfico da potência
+
+📋 Tabela com todas as medições
+
+📜 Logs armazenados em logs.csv
+
+🔗 Demo da API integrada
+
+🌐 API Integrada (via Streamlit)
+
+Acessar diretamente via navegador:
 
 http://localhost:8501/?temp=30&umid=70
 
 
-Retorno:
+Resposta JSON:
 
 {
   "temperatura": 30,
@@ -131,49 +150,55 @@ Retorno:
   "potencia": 82.3
 }
 
-📊 Geração de Logs
 
-Cada interação do usuário é salva automaticamente em:
+Perfeito para integração com sistemas externos ou sensores.
 
-logs.csv
+📊 Logs Automáticos (logs.csv)
 
+Cada interação gera um registro contendo:
 
-O arquivo contém:
+Timestamp
 
-timestamp
+Temperatura inserida
 
-temperatura
+Umidade inserida
 
-umidade
+Potência calculada
 
-potência calculada
+Exemplo de uso (para capítulos de resultados):
 
-Ideal para o capítulo de Estudo Experimental e Resultados.
+2025-12-09 17:40:21, 30, 70, 82.38
+2025-12-09 17:41:10, 25, 50, 45.00
 
-🧪 Testes
-
-Para testar com valores fixos:
-
+🧪 Testes Diretos no Python
 from fuzzy_controller import compute_power
-print(compute_power(30, 70))
+
+print(compute_power(30, 70))  # Exemplo de teste
 
 🏁 Conclusão
 
-Este projeto demonstra:
+Este MVP demonstra:
 
-Um sistema inteligente funcional
+✔ Um sistema inteligente funcional
 
-IA real utilizando lógica fuzzy
+✔ IA fuzzy real aplicada ao controle térmico
 
-Interface moderna e fácil de usar
+✔ Interface web moderna e simples
 
-API integrável
+✔ Dashboard para visualização e análise
 
-Dashboard com histórico
+✔ API embutida para integração
 
-Estrutura perfeita para um MVP acadêmico
+✔ Estrutura modular e profissional
 
-📎 Autor
+Projeto ideal para fins acadêmicos e demonstração de conceitos de IA aplicada.
 
-Arthur Konzen
-UTFPR — Sistemas Inteligentes Aplicados
+👥 Autores
+
+Arthur Botelho Konzen
+Ítalo Kaique Bueno
+UTFPR – Sistemas Inteligentes Aplicados
+
+🔗 Repositório
+
+👉 https://github.com/arthurkonzen/fuzzy-ac-controller
